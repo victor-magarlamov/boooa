@@ -1,0 +1,19 @@
+{
+  "name": "boooa",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "author": "victor.magarlamov@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "prebuild": "rm -rf lib",
+    "build": "./node_modules/.bin/babel src --out-dir lib"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel-jest": "^27.4.5",
+    "jest": "^27.4.5"
+  }
+}
