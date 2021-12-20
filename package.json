@@ -1,13 +1,17 @@
 {
   "name": "boooa",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "./lib/index.js",
   "author": "victor.magarlamov@gmail.com",
   "license": "MIT",
   "scripts": {
     "test": "jest",
     "prebuild": "rm -rf lib",
-    "build": "./node_modules/.bin/babel src --out-dir lib"
+    "build": "./node_modules/.bin/babel src --out-dir lib",
+    "prepublish": "yarn run test && yarn run build"
+  },
+  "engines": {
+    "node": ">8.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",
