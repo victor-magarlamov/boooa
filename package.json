@@ -2,7 +2,8 @@
   "name": "boooa",
   "version": "0.0.1",
   "main": "./lib/index.js",
-  "author": "victor.magarlamov@gmail.com",
+  "author": "Victor Magarlamov <victor.magarlamov@gmail.com>",
+  "description": "Library to stringify an array of objects with similar schema to JSON with reducing the size",
   "license": "MIT",
   "scripts": {
     "test": "jest",
@@ -12,6 +13,16 @@
   },
   "engines": {
     "node": ">8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/victor-magarlamov/boooa"
+  },
+  "bugs": {
+    "url": "https://github.com/victor-magarlamov/boooa/issues"
+  },
+  "homepage": {
+    "url": "https://github.com/victor-magarlamov/boooa"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.0",

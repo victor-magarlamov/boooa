@@ -2,7 +2,7 @@
 
 ## Goal
 
-The goal this simple library is to stringify to JSON an array of objects with similar schema with reducing the size.
+The goal of this simple library is to convert an array of objects (having a similar schema) to JSON, downsizing.
 Yes, i know about protobuf 8-) But sometimes it can be so exciting to reinvent the wheel!
 
 ## Install
@@ -19,14 +19,14 @@ import { swallow, spitOut } from "boooa";
 const data = [{
   id: 1, title: "Title 1", status: 0,
 }, {
-  id: 2, title: "Title 2", status: 1,
+  id: 2, title: null, status: 1,
 }];
 
 // Using the `swallow` method, we can stringify an array...
 
 const str = swallow(data);
 
-// Now it looks like {"data":[1,"Title 1",0,2,"Title 2",1],"schema":["id","title","status"]}
+// Now it looks like {"data":[1,"Title 1",0,2,null,1],"schema":["id","title","status"]}
 // The data field contains all values, the schema field contains... the schema. 
 // It allows us to reduce the size of array twice.
 
