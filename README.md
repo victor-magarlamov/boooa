@@ -26,7 +26,8 @@ const data = [{
 
 const str = swallow(data);
 
-// Now it looks like {"data":[1,"Title 1",0,2,null,1],"schema":["id","title","status"]}
+// Now it looks like this
+// {"data":[1,"Title 1",0,2,null,1],"schema":["id","title","status"]}
 // The data field contains all values, the schema field contains... the schema. 
 // It allows us to reduce the size of array twice.
 
