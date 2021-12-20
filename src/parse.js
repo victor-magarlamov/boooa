@@ -1,18 +1,22 @@
 export default function parse (string) {
-  const { data, schema } = JSON.parse(string);
+  try {
+    const { data, schema } = JSON.parse(string);
 
-  const result  = [];
-  let start = 0;
+    const result  = [];
+    let start = 0;
 
-  while (start < data.length) {
-    const obj = schema.reduce((acc, key) => {
-      acc[key] = data[start++];
+    while (start < data.length) {
+      const obj = schema.reduce((acc, key) => {
+        acc[key] = data[start++];
 
-      return acc;
-    }, {});
+        return acc;
+      }, {});
 
-    result.push(obj);
+      result.push(obj);
+    }
+
+    return result;
+  } catch (e) {
+    throw new Error(`Boooa: ${e.message}`);
   }
-
-  return result;
 }
