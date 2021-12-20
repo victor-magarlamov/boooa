@@ -17,9 +17,9 @@ import { swallow, spitOut } from "boooa";
 // Let's we have an array of similar objects...
 
 const data = [{
-  id: 1, title: "Item 1", status: 0,
+  id: 1, title: "Title 1", status: 0,
 }, {
-  id: 2, title: "Item 2", status: 1,
+  id: 2, title: "Title 2", status: 1,
 }];
 
 // Using the `swallow` method, we can stringify an array...
