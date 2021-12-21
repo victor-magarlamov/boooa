@@ -3,7 +3,7 @@
 ## Goal
 
 The goal of this simple library is to convert an array of objects (having a similar schema) to JSON, downsizing.
-Yes, i know about protobuf 8-) But sometimes it can be so exciting to reinvent the wheel!
+Yes, i know about protobuf 8-) But sometimes it can be so exciting to reinvent the wheel! :biking_man:
 
 ## Install
 
