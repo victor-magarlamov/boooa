@@ -2,10 +2,9 @@
 
 ## Goal
 
-The goal of this simple library is to convert an array of objects (having a similar schema) to JSON, downsizing.
-Yes, i know about protobuf 8-) But sometimes it can be so exciting to reinvent the wheel! :biking_man:
+The goal of this simple library is to convert an array of objects (having a similar schema) to JSON, and downsizing by converting to an array of values only. Yes, i know about protobuf 8-) But sometimes it can be so exciting to reinvent the wheel! :biking_man:
 
-In my case, this approach helps me to reduce the size of KV storage in Cloudflare and reduce the time for API requests on slow networks.
+In my case, this naive approach helps me to reduce the size of KV storage in Cloudflare and reduce the time for requests to API when network is slow.
 
 ## Install
 
