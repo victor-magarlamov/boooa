@@ -5,6 +5,8 @@
 The goal of this simple library is to convert an array of objects (having a similar schema) to JSON, downsizing.
 Yes, i know about protobuf 8-) But sometimes it can be so exciting to reinvent the wheel! :biking_man:
 
+In my case, this approach helps me to reduce the size of KV storage in Cloudflare and reduce the time for API requests on slow networks.
+
 ## Install
 
 npm i boooa

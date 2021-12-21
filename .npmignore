@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+yarn-lock.json
+yarn-error.log
+src/
+__tests__/
+coverage
+jest.config.js
+babel.config.json
