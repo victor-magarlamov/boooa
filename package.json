@@ -1,6 +1,6 @@
 {
   "name": "boooa",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "./lib/index.js",
   "author": "Victor Magarlamov <victor.magarlamov@gmail.com>",
   "description": "Library to stringify an array of objects with similar schema to JSON with reducing the size",
@@ -30,5 +30,8 @@
     "@babel/preset-env": "^7.16.5",
     "babel-jest": "^27.4.5",
     "jest": "^27.4.5"
+  },
+  "dependencies": {
+    "istanbul-badges-readme": "^1.8.1"
   }
 }
