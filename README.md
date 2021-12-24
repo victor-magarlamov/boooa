@@ -6,7 +6,7 @@
 
 ## Goal
 
-The goal of this simple library is to convert an array of objects (having a similar schema) to JSON string, and downsizing by converting to an array of values only.
+The goal of this [small](https://bundlephobia.com/package/boooa@0.1.0) library is to convert an array of objects (having a similar schema) to JSON string, and downsizing by converting to an array of values only.
 
 ## Install
 
@@ -47,6 +47,7 @@ const str = stringify(data, { replace: {
     newValue: "%p",
   },
 }});
+// "{"data":[0,"Title 0","%p",1,"Title 1","%p",2,"Title 2","%p"]...
 ```
 
 Now JSON size is ~17kb.
