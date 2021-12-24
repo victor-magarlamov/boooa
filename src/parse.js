@@ -1,22 +1,33 @@
 export default function parse (string) {
-  try {
-    const { data, schema } = JSON.parse(string);
+  const { data, schema, options } = JSON.parse(string);
+  const { replace } = options || {};
 
-    const result  = [];
-    let start = 0;
+  const result  = [];
+  let start = 0;
 
-    while (start < data.length) {
-      const obj = schema.reduce((acc, key) => {
-        acc[key] = data[start++];
+  while (start < data.length) {
+    const obj = schema.reduce((acc, key) => {
+      let value = data[start++];
 
-        return acc;
-      }, {});
+      if (value.indexOf && replace && replace[key]) {
+        const { newValue, searchValue } = replace[key];
 
-      result.push(obj);
-    }
+        if (~value.indexOf(newValue)) {
+          if (typeof searchValue === "number") {
+            value = searchValue;
+          } else {
+            value = value.replace(newValue, searchValue);
+          }
+        }
+      }
 
-    return result;
-  } catch (e) {
-    throw new Error(`Boooa: ${e.message}`);
+      acc[`${key}`] = value;
+
+      return acc;
+    }, {});
+
+    result.push(obj);
   }
+
+  return result;
 }

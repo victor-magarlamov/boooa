@@ -1,9 +1,9 @@
 {
   "name": "boooa",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "./lib/index.js",
   "author": "Victor Magarlamov <victor.magarlamov@gmail.com>",
-  "description": "Library to stringify an array of objects with similar schema to JSON with reducing the size",
+  "description": "Library to stringify an array of objects with similar schema to JSON string with reducing the size",
   "license": "MIT",
   "scripts": {
     "test": "jest",

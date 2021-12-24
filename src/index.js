@@ -1,2 +1,2 @@
-export { default as swallow } from "./stringify";
-export { default as spitOut } from "./parse";
+export { default as stringify } from "./stringify";
+export { default as parse } from "./parse";

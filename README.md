@@ -2,13 +2,11 @@
 
 | Statements                  | Branches                | Functions                 | Lines             |
 | --------------------------- | ----------------------- | ------------------------- | ----------------- |
-| ![Statements](https://img.shields.io/badge/statements-100%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-89.47%25-yellow.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-100%25-brightgreen.svg?style=flat) |
+| ![Statements](https://img.shields.io/badge/statements-100%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-96.96%25-brightgreen.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-100%25-brightgreen.svg?style=flat) |
 
 ## Goal
 
-The goal of this simple library is to convert an array of objects (having a similar schema) to JSON string, and downsizing by converting to an array of values only. Yes, i know about protobuf. But sometimes it can be so exciting to reinvent the wheel! :biking_man:
-
-In my case, this naive approach helps me to reduce the size of KV storage in Cloudflare and reduce the time for requests to API when network is slow.
+The goal of this simple library is to convert an array of objects (having a similar schema) to JSON string, and downsizing by converting to an array of values only.
 
 ## Install
 
@@ -16,27 +14,46 @@ npm i boooa
 
 ## Usage
 
+Suppose we have an array of 1000 elements that looks like...
+
 ```js
-import { swallow, spitOut } from "boooa";
+const data = [
+  {"id":0,"title":"Title 0","status":"public"},
+  {"id":1,"title":"Title 1","status":"public"},
+  {"id":2,"title":"Title 2","status":"public"},
+  ...
+]
+```
 
-// Let's we have an array of similar objects...
+JSON size will be ~42kb. But we can downsizing it by deleting the keys. Let's do it!
 
-const data = [{
-  id: 1, title: "Title 1", status: 0,
-}, {
-  id: 2, title: null, status: 1,
-}];
+```js
+import { stringify } from "boooa";
 
-// Using the `swallow` method, we can stringify an array...
+const str = stringify(data);
+// "{"data":[0,"Title 0","public",1,"Title 1","public",2,"Title 2","public"],"schema":["id","title","status"]}"
+```
 
-const str = swallow(data);
+Now JSON size is ~21kb.
 
-// Now it looks like this
-// {"data":[1,"Title 1",0,2,null,1],"schema":["id","title","status"]}
-// The data field contains all values, the schema field contains... the schema. 
-// It allows us to reduce the size of array twice.
+Also we can replace duplicate values.
 
-// Using the `spitOut` method, we can parse the string back into an array.
+```js
+import { stringify } from "boooa";
 
-const array = spitOut(str);
+const str = stringify(data, { replace: {
+  status: {
+    searchValue: "public",
+    newValue: "%p",
+  },
+}});
+```
+
+Now JSON size is ~17kb.
+
+Using the `parse` method, we can parse the string back into an array.
+
+```js
+import { parse } from "boooa";
+const array = parse(str);
 ```
